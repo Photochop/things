@@ -1,0 +1,92 @@
+def main():
+  import random
+
+  print('NPC GENERATOR')
+  print()
+  charNam = input('NPC name? ')
+  charRce = input('What race is the npc? ')
+  charCls = input('What profession does the npc have? ')
+  charStr = (random.randint(5,14))
+  charDex = (random.randint(5,14))
+  charCon = (random.randint(5,14))
+  charInt = (random.randint(5,14))
+  charWis = (random.randint(5,14))
+  charCha = (random.randint(5,14))
+
+  bonusStr = (((int(charStr)) // 2) - 5)
+  bonusDex = (((int(charDex)) // 2) - 5)
+  bonusCon = (((int(charCon)) // 2) - 5)
+  bonusInt = (((int(charInt)) // 2) - 5)
+  bonusWis = (((int(charWis)) // 2) - 5)
+  bonusCha = (((int(charCha)) // 2) - 5)
+
+  charAC = (bonusDex + 8)
+  charHP = (bonusCon + 8)
+
+  skilAcro = ((random.randint(1,20)) + bonusDex)
+  skilAthl = ((random.randint(1,20)) + bonusStr)
+  skilArca = ((random.randint(1,20)) + bonusInt)
+  skilHist = ((random.randint(1,20)) + bonusInt)
+  skilMedi = ((random.randint(1,20)) + bonusWis)
+  skilSurv = ((random.randint(1,20)) + bonusWis)
+  skilAnim = ((random.randint(1,20)) + bonusWis)
+  skilStea = ((random.randint(1,20)) + bonusDex)
+  skilSlig = ((random.randint(1,20)) + bonusDex)
+  skilInti = ((random.randint(1,20)) + bonusCha)
+  skilPers = ((random.randint(1,20)) + bonusCha)
+  skilDece = ((random.randint(1,20)) + bonusCha)
+  skilPerc = ((random.randint(1,20)) + bonusWis)
+  skilReli = ((random.randint(1,20)) + bonusInt)
+  skilInve = ((random.randint(1,20)) + bonusInt)
+  skilInsi = ((random.randint(1,20)) + bonusWis)
+  skilNatu = ((random.randint(1,20)) + bonusWis)
+  skilPerf = ((random.randint(1,20)) + bonusCha)
+
+  npcAttitude = ['friendly','calm','sad','tired','sick','excited','upset','anxious']
+  charAttitude = (random.choice(npcAttitude))
+
+  npcAppearance = ['well groomed','disheveled','fashionable','out of date','rural']
+  charAppearance = (random.choice(npcAppearance))
+
+  npcHobby = ['painting','writing','music','fishing','tinkering','researching','building','having pets','baking','gambling','drinking','going to temple','swimming','riding','dancing','singing','going for walks','sparring']
+  charHobby = (random.choice(npcHobby))
+
+  print()
+  print(f'''Behold, {charNam} the {charRce} {charCls} is here! 
+  NPC stat modifiers STR {bonusStr} | DEX {bonusDex} | CON {bonusCon} | INT {bonusInt} | WIS {bonusWis} | CHA {bonusCha}''')
+  print(f'Natural AC is {charAC} and HP is {charHP}')
+  print()
+  print(f'{charNam} has a {charAppearance} appearance and looks to be {charAttitude}')
+  print(f'{charNam} hobbies include {charHobby}')
+  print()
+  print()
+  print(f'---Skill Checks---')
+  print()
+  print(f'Acrobatics check is {skilAcro}')
+  print(f'Athletics check is {skilAthl}')
+  print(f'Arcana check is {skilArca}')
+  print(f'History check is {skilHist}')
+  print(f'Medicine check is {skilMedi}')
+  print(f'Survival check is {skilSurv}')
+  print(f'Animal Handling check is {skilAnim}')
+  print(f'Stealth check is {skilStea}')
+  print(f'Slight of Hand check is {skilSlig}')
+  print(f'Intimidate check is {skilInti}')
+  print(f'Persuasion check is {skilPers}')
+  print(f'Deception check is {skilDece}')
+  print(f'Perception check is {skilPerc}')
+  print(f'Religion check is {skilReli}')
+  print(f'Investigation check is {skilInve}')
+  print(f'Insight check is {skilInsi}')
+  print(f'Nature check is {skilNatu}')
+  print(f'Performance check is {skilPerf}')
+  print()
+  restart = input('Make another NPC? ').lower()
+  if restart == "yes":
+    main()
+
+  else:
+    print('Generator has concluded')
+    exit()
+
+main()
